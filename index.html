@@ -806,7 +806,7 @@
                 const link = document.createElement('a');
                 // 使用API生成二维码图片URL
                 link.href = 'https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=wechat://syz1125818';
-                link.download = 'songyuzhe-wechat-qr.jpg';
+                link.download = 'wechat-qr.jpg';
                 document.body.appendChild(link);
                 link.click();
                 document.body.removeChild(link);
