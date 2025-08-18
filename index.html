@@ -70,6 +70,7 @@
             overflow: hidden;
             animation: slideUp 0.8s ease;
             margin: 0 auto;
+            position: relative;
         }
         
         .profile-header {
@@ -95,6 +96,8 @@
             font-size: 70px;
             color: #3498db;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 2;
         }
         
         .profile-header h2 {
@@ -102,16 +105,21 @@
             margin-bottom: 8px;
             font-weight: 600;
             letter-spacing: 1px;
+            position: relative;
+            z-index: 2;
         }
         
         .profile-header p {
             font-size: 1.3rem;
             opacity: 0.9;
             font-weight: 300;
+            position: relative;
+            z-index: 2;
         }
         
         .profile-content {
             padding: 40px 30px 30px;
+            position: relative;
         }
         
         .info-grid {
@@ -128,6 +136,8 @@
             transition: all 0.3s ease;
             border: 1px solid #eef2f7;
             overflow: hidden;
+            position: relative;
+            z-index: 2;
         }
         
         .info-card:hover {
@@ -261,6 +271,8 @@
             margin-top: 40px;
             gap: 25px;
             flex-wrap: wrap;
+            position: relative;
+            z-index: 2;
         }
         
         .social-icons a {
@@ -557,6 +569,41 @@
                 font-size: 1.4rem;
             }
         }
+        
+        /* 装饰元素 */
+        .decoration {
+            position: absolute;
+            z-index: 1;
+        }
+        
+        .decoration.circle {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: rgba(52, 152, 219, 0.1);
+            top: 10%;
+            left: 5%;
+        }
+        
+        .decoration.triangle {
+            width: 0;
+            height: 0;
+            border-left: 60px solid transparent;
+            border-right: 60px solid transparent;
+            border-bottom: 100px solid rgba(41, 128, 185, 0.1);
+            bottom: 15%;
+            right: 5%;
+            transform: rotate(45deg);
+        }
+        
+        .decoration.square {
+            width: 80px;
+            height: 80px;
+            background: rgba(41, 128, 185, 0.1);
+            bottom: 30%;
+            left: 8%;
+            transform: rotate(15deg);
+        }
     </style>
 </head>
 <body>
@@ -567,6 +614,11 @@
         </header>
         
         <div class="card">
+            <!-- 装饰元素 -->
+            <div class="decoration circle"></div>
+            <div class="decoration triangle"></div>
+            <div class="decoration square"></div>
+            
             <div class="profile-header">
                 <div class="avatar">
                     <i class="fas fa-user-graduate"></i>
@@ -682,7 +734,8 @@
     <script>
         // 修复的年龄计算函数
         function calculateAge() {
-            const birthDate = new Date(2011, 10, 25); // 注意：月份是从0开始的，11月是10
+            // 使用正确的日期格式：年, 月(0-11), 日
+            const birthDate = new Date(2011, 10, 25); // 11月是10
             const today = new Date();
             
             let age = today.getFullYear() - birthDate.getFullYear();
@@ -728,19 +781,20 @@
             wechatBtn.addEventListener('click', function(e) {
                 e.preventDefault();
                 modal.style.display = 'flex';
-                // 滚动到顶部修复 - 添加此代码
-                window.scrollTo(0, 0);
+                document.body.style.overflow = 'hidden'; // 防止背景滚动
             });
             
             // 关闭按钮点击事件
             closeBtn.addEventListener('click', function() {
                 modal.style.display = 'none';
+                document.body.style.overflow = 'auto'; // 恢复滚动
             });
             
             // 点击模态框外部关闭
             window.addEventListener('click', function(e) {
                 if (e.target === modal) {
                     modal.style.display = 'none';
+                    document.body.style.overflow = 'auto'; // 恢复滚动
                 }
             });
             
@@ -750,6 +804,7 @@
                 
                 // 创建临时下载链接
                 const link = document.createElement('a');
+                // 使用API生成二维码图片URL
                 link.href = 'https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=wechat://syz1125818';
                 link.download = 'songyuzhe-wechat-qr.jpg';
                 document.body.appendChild(link);
@@ -759,7 +814,36 @@
                 // 显示下载成功提示
                 alert('二维码已下载！');
             });
+            
+            // 添加装饰元素动画
+            const decorations = document.querySelectorAll('.decoration');
+            decorations.forEach((dec, index) => {
+                dec.style.opacity = '0';
+                setTimeout(() => {
+                    dec.style.transition = 'opacity 1s ease, transform 8s linear';
+                    dec.style.opacity = '1';
+                    
+                    if (dec.classList.contains('circle')) {
+                        dec.style.animation = 'float 8s infinite ease-in-out';
+                    } else if (dec.classList.contains('triangle')) {
+                        dec.style.animation = 'float 10s infinite ease-in-out';
+                    } else if (dec.classList.contains('square')) {
+                        dec.style.animation = 'float 12s infinite ease-in-out';
+                    }
+                }, 500 + index * 300);
+            });
         };
+        
+        // 添加浮动动画
+        const style = document.createElement('style');
+        style.innerHTML = `
+            @keyframes float {
+                0% { transform: translateY(0) rotate(0deg); }
+                50% { transform: translateY(-20px) rotate(5deg); }
+                100% { transform: translateY(0) rotate(0deg); }
+            }
+        `;
+        document.head.appendChild(style);
     </script>
 </body>
 </html>
