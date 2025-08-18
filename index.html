@@ -641,7 +641,7 @@
                 </div>
                 
                 <div class="social-icons">
-                    <a href="#" title="微信" id="wechat-btn"><i class="fab fa-weixin"></i></a>
+                    <a href="javascript:void(0)" title="微信" id="wechat-btn"><i class="fab fa-weixin"></i></a>
                     <a href="https://qm.qq.com/q/yXxuez1e7K" title="QQ"><i class="fab fa-qq"></i></a>
                     <a href="mailto:qweasdzxc17856966954@outlook.com" title="邮箱"><i class="fas fa-envelope"></i></a>
                     <a href="tel:17856966954" title="电话"><i class="fas fa-phone"></i></a>
@@ -660,8 +660,8 @@
             </div>
             
             <div class="qr-code">
-                <!-- 替换为您的二维码图片 -->
-                <img src="wechat-qr.png" alt="微信二维码">
+                <!-- 这里使用了占位二维码，您需要替换为实际二维码 -->
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=wechat://syz1125818" alt="微信二维码">
             </div>
             
             <div class="username">
@@ -680,9 +680,86 @@
     </div>
     
     <script>
-        // 计算年龄
+        // 修复的年龄计算函数
         function calculateAge() {
-            const birthDate = new Date("2011-11-25");
+            const birthDate = new Date(2011, 10, 25); // 注意：月份是从0开始的，11月是10
             const today = new Date();
             
-            let age = today.getFullYear() - birthDa
+            let age = today.getFullYear() - birthDate.getFullYear();
+            const monthDiff = today.getMonth() - birthDate.getMonth();
+            
+            if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+                age--;
+            }
+            
+            return age;
+        }
+        
+        // 更新年龄显示
+        function updateAgeDisplay() {
+            const age = calculateAge();
+            document.getElementById('age').textContent = age + "岁";
+        }
+        
+        // 获取模态框和按钮元素
+        const modal = document.getElementById('wechat-modal');
+        const wechatBtn = document.getElementById('wechat-btn');
+        const closeBtn = document.getElementById('close-modal');
+        const downloadBtn = document.getElementById('download-qr');
+        
+        // 页面加载完成后执行
+        window.onload = function() {
+            // 更新年龄
+            updateAgeDisplay();
+            
+            // 每天更新一次年龄
+            setInterval(updateAgeDisplay, 1000 * 60 * 60 * 24);
+            
+            // 添加简单的动画效果
+            const infoCards = document.querySelectorAll('.info-card');
+            infoCards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.style.opacity = 1;
+                    card.style.transform = 'translateY(0)';
+                }, 300 + index * 200);
+            });
+            
+            // 微信按钮点击事件
+            wechatBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                modal.style.display = 'flex';
+                // 滚动到顶部修复 - 添加此代码
+                window.scrollTo(0, 0);
+            });
+            
+            // 关闭按钮点击事件
+            closeBtn.addEventListener('click', function() {
+                modal.style.display = 'none';
+            });
+            
+            // 点击模态框外部关闭
+            window.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+            
+            // 下载按钮点击事件
+            downloadBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // 创建临时下载链接
+                const link = document.createElement('a');
+                link.href = 'https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=wechat://syz1125818';
+                link.download = 'songyuzhe-wechat-qr.jpg';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                
+                // 显示下载成功提示
+                alert('二维码已下载！');
+            });
+        };
+    </script>
+</body>
+</html>
