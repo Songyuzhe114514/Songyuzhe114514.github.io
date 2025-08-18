@@ -3,58 +3,686 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>宋宇哲的个人网站 | songyuzhe.top</title>
+    <title>宋宇哲的个人简介</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+        }
+        
         body {
-            font-family: 'Segoe UI', sans-serif;
-            text-align: center;
-            padding: 50px;
-            background: #f0f8ff;
+            background: linear-gradient(135deg, #e0f7fa, #f5f5f5);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
         }
-        h1 {
-            color: #4361ee;
-            font-size: 2.5rem;
-        }
+        
         .container {
-            max-width: 800px;
+            width: 100%;
+            max-width: 850px;
             margin: 0 auto;
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            padding: 0 15px;
         }
-        .btn {
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #2c3e50;
+            animation: fadeIn 1s ease;
+        }
+        
+        header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            color: #2980b9;
+            font-weight: 600;
+            position: relative;
             display: inline-block;
-            margin-top: 20px;
-            padding: 12px 30px;
-            background: #4361ee;
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            transition: 0.3s;
         }
-        .btn:hover {
+        
+        header h1:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: #3498db;
+            border-radius: 2px;
+        }
+        
+        header p {
+            font-size: 1.2rem;
+            color: #7f8c8d;
+            margin-top: 20px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            animation: slideUp 0.8s ease;
+            margin: 0 auto;
+        }
+        
+        .profile-header {
+            background: linear-gradient(120deg, #3498db, #2980b9);
+            padding: 50px 20px 40px;
+            text-align: center;
+            color: white;
+            position: relative;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        }
+        
+        .avatar {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            margin: 0 auto 25px;
+            background: #fff;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 70px;
+            color: #3498db;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .profile-header h2 {
+            font-size: 2.4rem;
+            margin-bottom: 8px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+        
+        .profile-header p {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+        
+        .profile-content {
+            padding: 40px 30px 30px;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        
+        .info-card {
+            background: #f8fafc;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            border: 1px solid #eef2f7;
+            overflow: hidden;
+        }
+        
+        .info-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(52, 152, 219, 0.15);
+            border-color: #d6e4f0;
+        }
+        
+        .info-card h3 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #3498db;
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .info-card h3 i {
+            background: #e3f2fd;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: #3498db;
+        }
+        
+        .info-item {
+            display: flex;
+            margin-bottom: 16px;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px dashed #e0e7f0;
+        }
+        
+        .info-item:last-child {
+            border-bottom: none;
+        }
+        
+        .info-item i {
+            width: 36px;
+            font-size: 1.3rem;
+            color: #3498db;
+            background: #e3f2fd;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        .info-item span {
+            flex: 1;
+            font-size: 1.15rem;
+            margin-left: 15px;
+            color: #34495e;
+            word-break: break-word;
+        }
+        
+        .hobbies {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 10px;
+        }
+        
+        .hobby {
+            background: #e3f2fd;
+            padding: 8px 18px;
+            border-radius: 30px;
+            font-size: 1rem;
+            color: #2980b9;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        
+        .hobby:hover {
+            background: #3498db;
+            color: white;
+            transform: scale(1.05);
+        }
+        
+        .drive-box {
+            background: #e3f2fd;
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 25px;
+            text-align: center;
+            border: 1px solid #d1e8ff;
+        }
+        
+        .drive-box h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.3rem;
+        }
+        
+        .drive-box a {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(to right, #3498db, #2980b9);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+            text-align: center;
+        }
+        
+        .drive-box a:hover {
             transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(67, 97, 238, 0.4);
+            box-shadow: 0 8px 20px rgba(52, 152, 219, 0.4);
+        }
+        
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+        
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            font-size: 2rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .social-icons a:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(52, 152, 219, 0.4);
+        }
+        
+        .social-icons a:hover:after {
+            transform: translateY(0);
+        }
+        
+        .age-value {
+            font-weight: bold;
+            color: #e74c3c;
+            font-size: 1.2rem;
+        }
+        
+        /* 微信二维码模态框样式 */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        .modal-content {
+            background: white;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 320px;
+            padding: 30px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+            transform: translateY(-20px);
+            animation: slideDown 0.4s ease forwards;
+        }
+        
+        .modal-header {
+            margin-bottom: 20px;
+            color: #2980b9;
+        }
+        
+        .modal-header i {
+            font-size: 3.5rem;
+            color: #2ecc71;
+        }
+        
+        .modal-header h3 {
+            font-size: 1.8rem;
+            margin-top: 10px;
+        }
+        
+        .qr-code {
+            width: 220px;
+            height: 220px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #e0f7fa, #b2ebf2);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 8px solid white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        .qr-code img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .username {
+            margin-top: 15px;
+            font-size: 1.2rem;
+            color: #2c3e50;
+            font-weight: 500;
+            padding: 8px 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            display: inline-block;
+        }
+        
+        .modal-footer {
+            margin-top: 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .download-btn {
+            display: block;
+            background: linear-gradient(to right, #3498db, #2980b9);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+            border: none;
+            cursor: pointer;
+        }
+        
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(52, 152, 219, 0.4);
+        }
+        
+        .close-btn {
+            background: #f5f5f5;
+            color: #7f8c8d;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .close-btn:hover {
+            background: #e0e0e0;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 900px) {
+            .container {
+                max-width: 95%;
+            }
+            
+            .profile-content {
+                padding: 30px 20px;
+            }
+            
+            .social-icons a {
+                width: 65px;
+                height: 65px;
+                font-size: 1.8rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .profile-header {
+                padding: 40px 15px 30px;
+            }
+            
+            .avatar {
+                width: 110px;
+                height: 110px;
+                font-size: 50px;
+            }
+            
+            header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .profile-header h2 {
+                font-size: 1.8rem;
+            }
+            
+            .social-icons {
+                gap: 20px;
+            }
+            
+            .social-icons a {
+                width: 60px;
+                height: 60px;
+                font-size: 1.7rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .profile-content {
+                padding: 25px 15px;
+            }
+            
+            header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .info-card {
+                padding: 20px;
+            }
+            
+            .social-icons {
+                gap: 15px;
+            }
+            
+            .social-icons a {
+                width: 55px;
+                height: 55px;
+                font-size: 1.5rem;
+            }
+            
+            .drive-box a {
+                padding: 10px 20px;
+                font-size: 1rem;
+            }
+            
+            .info-item span {
+                font-size: 1rem;
+            }
+            
+            .modal-content {
+                padding: 20px;
+            }
+            
+            .qr-code {
+                width: 180px;
+                height: 180px;
+            }
+            
+            .qr-code img {
+                width: 160px;
+                height: 160px;
+            }
+        }
+        
+        @media (max-width: 360px) {
+            .social-icons {
+                gap: 10px;
+            }
+            
+            .social-icons a {
+                width: 50px;
+                height: 50px;
+                font-size: 1.4rem;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>🚀 宋宇哲的个人网站</h1>
-        <p>域名：<strong>songyuzhe.top</strong> 正在建设中</p>
-        <p>技术栈：HTML5 / CSS3 / JavaScript</p>
+        <header>
+            <h1><i class="fas fa-user-circle"></i> 个人简介</h1>
+            <p>展示个人信息与联系方式</p>
+        </header>
         
-        <!-- 临时按钮（正式版替换为你的导航） -->
-        <a href="https://github.com/songyuzhe114514" class="btn" target="_blank">
-            访问我的GitHub
-        </a>
-        
-        <!-- 网站即将上线提示 -->
-        <div style="margin-top: 40px; border-top: 1px dashed #eee; padding-top: 20px;">
-            <small>Powered by GitHub Pages | 最后更新于 2025年8月18日</small>
+        <div class="card">
+            <div class="profile-header">
+                <div class="avatar">
+                    <i class="fas fa-user-graduate"></i>
+                </div>
+                <h2>宋宇哲</h2>
+                <p>学生</p>
+            </div>
+            
+            <div class="profile-content">
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3><i class="fas fa-info-circle"></i> 基本信息</h3>
+                        <div class="info-item">
+                            <i class="fas fa-user"></i>
+                            <span>姓名：宋宇哲</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-venus-mars"></i>
+                            <span>性别：男</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-birthday-cake"></i>
+                            <span>出生日期：2011-11-25</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>年龄：<span id="age" class="age-value">计算中...</span></span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>地址：安徽省淮南市寿县双桥镇</span>
+                        </div>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3><i class="fas fa-address-book"></i> 联系方式</h3>
+                        <div class="info-item">
+                            <i class="fab fa-weixin"></i>
+                            <span>微信：syz1125818</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fab fa-qq"></i>
+                            <span>QQ：2309402072</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>邮箱：qweasdzxc17856966954@outlook.com</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-phone"></i>
+                            <span>电话：17856966954</span>
+                        </div>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3><i class="fas fa-heart"></i> 兴趣爱好</h3>
+                        <div class="hobbies">
+                            <span class="hobby">编程</span>
+                            <span class="hobby">游戏</span>
+                            <span class="hobby">音乐</span>
+                            <span class="hobby">学习</span>
+                            <span class="hobby">科技</span>
+                        </div>
+                        
+                        <div class="drive-box">
+                            <h3><i class="fas fa-cloud-download-alt"></i> 我的网盘</h3>
+                            <a href="https://wwha.lanzoub.com/b009he4gcj" target="_blank">
+                                <i class="fas fa-external-link-alt"></i> 访问我的资源库（密码:6t40）
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="social-icons">
+                    <a href="#" title="微信" id="wechat-btn"><i class="fab fa-weixin"></i></a>
+                    <a href="https://qm.qq.com/q/yXxuez1e7K" title="QQ"><i class="fab fa-qq"></i></a>
+                    <a href="mailto:qweasdzxc17856966954@outlook.com" title="邮箱"><i class="fas fa-envelope"></i></a>
+                    <a href="tel:17856966954" title="电话"><i class="fas fa-phone"></i></a>
+                    <a href="https://wwha.lanzoub.com/b009he4gcj" title="网盘" target="_blank"><i class="fas fa-cloud"></i></a>
+                </div>
+            </div>
         </div>
     </div>
-</body>
-</html>
+    
+    <!-- 微信二维码模态框 -->
+    <div class="modal" id="wechat-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <i class="fab fa-weixin"></i>
+                <h3>微信二维码</h3>
+            </div>
+            
+            <div class="qr-code">
+                <!-- 替换为您的二维码图片 -->
+                <img src="wechat-qr.png" alt="微信二维码">
+            </div>
+            
+            <div class="username">
+                <i class="fas fa-user"></i> syz1125818
+            </div>
+            
+            <div class="modal-footer">
+                <a href="#" class="download-btn" id="download-qr">
+                    <i class="fas fa-download"></i> 下载二维码
+                </a>
+                <button class="download-btn close-btn" id="close-modal">
+                    <i class="fas fa-times"></i> 关闭
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // 计算年龄
+        function calculateAge() {
+            const birthDate = new Date("2011-11-25");
+            const today = new Date();
+            
+            let age = today.getFullYear() - birthDa
