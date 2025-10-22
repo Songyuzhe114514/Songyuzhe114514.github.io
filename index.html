@@ -3,10 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="baidu-site-verification" content="codeva-sZIARvr254" />
-    <title>宋宇哲的个人简介</title>
-    <meta name="description" content="这是我的个人网站" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>宋宇哲 - 个人信息</title>
     <style>
         * {
             margin: 0;
@@ -16,836 +13,179 @@
         }
         
         body {
-            background: linear-gradient(135deg, #e0f7fa, #f5f5f5);
-            min-height: 100vh;
+            background-color: #ffffff;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 20px;
+            min-height: 100vh;
         }
         
         .container {
             width: 100%;
-            max-width: 850px;
-            margin: 0 auto;
-            padding: 0 15px;
+            max-width: 900px;
         }
         
         header {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
+        }
+        
+        h1 {
             color: #2c3e50;
-            animation: fadeIn 1s ease;
-        }
-        
-        header h1 {
-            font-size: 2.8rem;
             margin-bottom: 10px;
-            color: #2980b9;
-            font-weight: 600;
-            position: relative;
-            display: inline-block;
+            font-size: 2.5rem;
         }
         
-        header h1:after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: #3498db;
-            border-radius: 2px;
-        }
-        
-        header p {
-            font-size: 1.2rem;
+        .subtitle {
             color: #7f8c8d;
-            margin-top: 20px;
+            font-size: 1.2rem;
         }
         
-        .card {
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            animation: slideUp 0.8s ease;
-            margin: 0 auto;
-            position: relative;
-        }
-        
-        .profile-header {
-            background: linear-gradient(120deg, #3498db, #2980b9);
-            padding: 50px 20px 40px;
-            text-align: center;
-            color: white;
-            position: relative;
-            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
-        }
-        
-        .avatar {
-            width: 140px;
-            height: 140px;
-            border-radius: 50%;
-            border: 5px solid rgba(255, 255, 255, 0.3);
-            margin: 0 auto 25px;
-            background: #fff;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 70px;
-            color: #3498db;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            position: relative;
-            z-index: 2;
-        }
-        
-        .profile-header h2 {
-            font-size: 2.4rem;
-            margin-bottom: 8px;
-            font-weight: 600;
-            letter-spacing: 1px;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .profile-header p {
-            font-size: 1.3rem;
-            opacity: 0.9;
-            font-weight: 300;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .profile-content {
-            padding: 40px 30px 30px;
-            position: relative;
-        }
-        
-        .info-grid {
+        .cards-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 25px;
         }
         
-        .info-card {
-            background: #f8fafc;
-            border-radius: 15px;
+        .card {
+            background-color: #f9f9f9;
+            border-radius: 12px;
             padding: 25px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
-            border: 1px solid #eef2f7;
-            overflow: hidden;
-            position: relative;
-            z-index: 2;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
         }
         
-        .info-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 25px rgba(52, 152, 219, 0.15);
-            border-color: #d6e4f0;
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.12);
         }
         
-        .info-card h3 {
-            color: #2c3e50;
-            margin-bottom: 20px;
-            padding-bottom: 15px;
-            border-bottom: 2px solid #3498db;
-            font-size: 1.4rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .info-card h3 i {
-            background: #e3f2fd;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
+        h2 {
             color: #3498db;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            border-bottom: 2px solid #eaeaea;
+            padding-bottom: 10px;
         }
         
         .info-item {
             display: flex;
-            margin-bottom: 16px;
-            align-items: center;
-            padding: 8px 0;
-            border-bottom: 1px dashed #e0e7f0;
+            margin-bottom: 15px;
         }
         
-        .info-item:last-child {
-            border-bottom: none;
+        .info-label {
+            font-weight: bold;
+            min-width: 100px;
+            color: #2c3e50;
         }
         
-        .info-item i {
-            width: 36px;
-            font-size: 1.3rem;
-            color: #3498db;
-            background: #e3f2fd;
-            height: 36px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-        
-        .info-item span {
-            flex: 1;
-            font-size: 1.15rem;
-            margin-left: 15px;
-            color: #34495e;
-            word-break: break-word;
-        }
-        
-        .hobbies {
+        .interests {
             display: flex;
             flex-wrap: wrap;
-            gap: 12px;
-            margin-top: 10px;
-        }
-        
-        .hobby {
-            background: #e3f2fd;
-            padding: 8px 18px;
-            border-radius: 30px;
-            font-size: 1rem;
-            color: #2980b9;
-            font-weight: 500;
-            transition: all 0.2s ease;
-        }
-        
-        .hobby:hover {
-            background: #3498db;
-            color: white;
-            transform: scale(1.05);
-        }
-        
-        .drive-box {
-            background: #e3f2fd;
-            border-radius: 12px;
-            padding: 20px;
-            margin-top: 25px;
-            text-align: center;
-            border: 1px solid #d1e8ff;
-        }
-        
-        .drive-box h3 {
-            color: #2c3e50;
-            margin-bottom: 15px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
             gap: 10px;
-            font-size: 1.3rem;
         }
         
-        .drive-box a {
+        .interest-tag {
+            background-color: #e1f5fe;
+            color: #0277bd;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.95rem;
+        }
+        
+        .github-link {
             display: inline-flex;
             align-items: center;
-            gap: 10px;
-            background: linear-gradient(to right, #3498db, #2980b9);
+            background-color: #2c3e50;
             color: white;
-            padding: 12px 30px;
-            border-radius: 50px;
+            padding: 10px 18px;
+            border-radius: 6px;
             text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
-            text-align: center;
-        }
-        
-        .drive-box a:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(52, 152, 219, 0.4);
-        }
-        
-        .social-icons {
-            display: flex;
-            justify-content: center;
-            margin-top: 40px;
-            gap: 25px;
-            flex-wrap: wrap;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .social-icons a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #3498db, #2980b9);
-            color: white;
-            font-size: 2rem;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .social-icons a:after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.1);
-            transform: translateY(100%);
-            transition: transform 0.3s ease;
-        }
-        
-        .social-icons a:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 10px 25px rgba(52, 152, 219, 0.4);
-        }
-        
-        .social-icons a:hover:after {
-            transform: translateY(0);
-        }
-        
-        .age-value {
-            font-weight: bold;
-            color: #e74c3c;
-            font-size: 1.2rem;
-        }
-        
-        /* 微信二维码模态框样式 */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            align-items: center;
-            justify-content: center;
-            animation: fadeIn 0.3s ease;
-        }
-        
-        .modal-content {
-            background: white;
-            border-radius: 20px;
-            width: 90%;
-            max-width: 320px;
-            padding: 30px;
-            text-align: center;
-            position: relative;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
-            transform: translateY(-20px);
-            animation: slideDown 0.4s ease forwards;
-        }
-        
-        .modal-header {
-            margin-bottom: 20px;
-            color: #2980b9;
-        }
-        
-        .modal-header i {
-            font-size: 3.5rem;
-            color: #2ecc71;
-        }
-        
-        .modal-header h3 {
-            font-size: 1.8rem;
             margin-top: 10px;
+            transition: background-color 0.3s;
         }
         
-        .qr-code {
-            width: 220px;
-            height: 220px;
-            margin: 0 auto;
-            background: linear-gradient(135deg, #e0f7fa, #b2ebf2);
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 8px solid white;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
+        .github-link:hover {
+            background-color: #3498db;
         }
         
-        .qr-code img {
-            width: 200px;
-            height: 200px;
-            object-fit: cover;
-        }
-        
-        .username {
-            margin-top: 15px;
+        .github-icon {
+            margin-right: 8px;
             font-size: 1.2rem;
-            color: #2c3e50;
-            font-weight: 500;
-            padding: 8px 15px;
-            background: #f8f9fa;
-            border-radius: 8px;
-            display: inline-block;
         }
         
-        .modal-footer {
-            margin-top: 25px;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            color: #95a5a6;
+            font-size: 0.95rem;
         }
         
-        .download-btn {
-            display: block;
-            background: linear-gradient(to right, #3498db, #2980b9);
-            color: white;
-            padding: 12px 25px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
-            border: none;
-            cursor: pointer;
-        }
-        
-        .download-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(52, 152, 219, 0.4);
-        }
-        
-        .close-btn {
-            background: #f5f5f5;
-            color: #7f8c8d;
-            border: 1px solid #e0e0e0;
-        }
-        
-        .close-btn:hover {
-            background: #e0e0e0;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        /* 动画效果 */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        @keyframes slideDown {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        /* 响应式设计 */
-        @media (max-width: 900px) {
-            .container {
-                max-width: 95%;
-            }
-            
-            .profile-content {
-                padding: 30px 20px;
-            }
-            
-            .social-icons a {
-                width: 65px;
-                height: 65px;
-                font-size: 1.8rem;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .info-grid {
+        @media (max-width: 600px) {
+            .cards-container {
                 grid-template-columns: 1fr;
             }
             
-            .profile-header {
-                padding: 40px 15px 30px;
+            h1 {
+                font-size: 2rem;
             }
-            
-            .avatar {
-                width: 110px;
-                height: 110px;
-                font-size: 50px;
-            }
-            
-            header h1 {
-                font-size: 2.2rem;
-            }
-            
-            .profile-header h2 {
-                font-size: 1.8rem;
-            }
-            
-            .social-icons {
-                gap: 20px;
-            }
-            
-            .social-icons a {
-                width: 60px;
-                height: 60px;
-                font-size: 1.7rem;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .profile-content {
-                padding: 25px 15px;
-            }
-            
-            header h1 {
-                font-size: 1.8rem;
-            }
-            
-            .info-card {
-                padding: 20px;
-            }
-            
-            .social-icons {
-                gap: 15px;
-            }
-            
-            .social-icons a {
-                width: 55px;
-                height: 55px;
-                font-size: 1.5rem;
-            }
-            
-            .drive-box a {
-                padding: 10px 20px;
-                font-size: 1rem;
-            }
-            
-            .info-item span {
-                font-size: 1rem;
-            }
-            
-            .modal-content {
-                padding: 20px;
-            }
-            
-            .qr-code {
-                width: 180px;
-                height: 180px;
-            }
-            
-            .qr-code img {
-                width: 160px;
-                height: 160px;
-            }
-        }
-        
-        @media (max-width: 360px) {
-            .social-icons {
-                gap: 10px;
-            }
-            
-            .social-icons a {
-                width: 50px;
-                height: 50px;
-                font-size: 1.4rem;
-            }
-        }
-        
-        /* 装饰元素 */
-        .decoration {
-            position: absolute;
-            z-index: 1;
-        }
-        
-        .decoration.circle {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            background: rgba(52, 152, 219, 0.1);
-            top: 10%;
-            left: 5%;
-        }
-        
-        .decoration.triangle {
-            width: 0;
-            height: 0;
-            border-left: 60px solid transparent;
-            border-right: 60px solid transparent;
-            border-bottom: 100px solid rgba(41, 128, 185, 0.1);
-            bottom: 15%;
-            right: 5%;
-            transform: rotate(45deg);
-        }
-        
-        .decoration.square {
-            width: 80px;
-            height: 80px;
-            background: rgba(41, 128, 185, 0.1);
-            bottom: 30%;
-            left: 8%;
-            transform: rotate(15deg);
         }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <h1><i class="fas fa-user-circle"></i> 个人简介</h1>
-            <p>展示个人信息与联系方式</p>
+            <h1>宋宇哲</h1>
+            <p class="subtitle">热爱编程与学习的少年</p>
         </header>
         
-        <div class="card">
-            <!-- 装饰元素 -->
-            <div class="decoration circle"></div>
-            <div class="decoration triangle"></div>
-            <div class="decoration square"></div>
-            
-            <div class="profile-header">
-                <div class="avatar">
-                    <i class="fas fa-user-graduate"></i>
+        <div class="cards-container">
+            <div class="card">
+                <h2>基本信息</h2>
+                <div class="info-item">
+                    <span class="info-label">姓名：</span>
+                    <span>宋宇哲</span>
                 </div>
-                <h2>宋宇哲</h2>
-                <p>学生</p>
-            </div>
-            
-            <div class="profile-content">
-                <div class="info-grid">
-                    <div class="info-card">
-                        <h3><i class="fas fa-info-circle"></i> 基本信息</h3>
-                        <div class="info-item">
-                            <i class="fas fa-user"></i>
-                            <span>姓名：宋宇哲</span>
-                        </div>
-                        <div class="info-item">
-                            <i class="fas fa-venus-mars"></i>
-                            <span>性别：男</span>
-                        </div>
-                        <div class="info-item">
-                            <i class="fas fa-birthday-cake"></i>
-                            <span>出生日期：2011-11-25</span>
-                        </div>
-                        <div class="info-item">
-                            <i class="fas fa-calendar-alt"></i>
-                            <span>年龄：<span id="age" class="age-value">计算中...</span></span>
-                        </div>
-                        <div class="info-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>地址：安徽省淮南市寿县双桥镇</span>
-                        </div>
-                    </div>
-                    
-                    <div class="info-card">
-                        <h3><i class="fas fa-address-book"></i> 联系方式</h3>
-                        <div class="info-item">
-                            <i class="fab fa-weixin"></i>
-                            <span>微信：syz1125818</span>
-                        </div>
-                        <div class="info-item">
-                            <i class="fab fa-qq"></i>
-                            <span>QQ：2309402072</span>
-                        </div>
-                        <div class="info-item">
-                            <i class="fas fa-envelope"></i>
-                            <span>邮箱：qweasdzxc17856966954@outlook.com</span>
-                        </div>
-                        <div class="info-item">
-                            <i class="fas fa-phone"></i>
-                            <span>电话：17856966954</span>
-                        </div>
-                    </div>
-                    
-                    <div class="info-card">
-                        <h3><i class="fas fa-heart"></i> 兴趣爱好</h3>
-                        <div class="hobbies">
-                            <span class="hobby">编程</span>
-                            <span class="hobby">游戏</span>
-                            <span class="hobby">音乐</span>
-                            <span class="hobby">学习</span>
-                            <span class="hobby">科技</span>
-                        </div>
-                        
-                        <div class="drive-box">
-                            <h3><i class="fas fa-cloud-download-alt"></i> 我的网盘</h3>
-                            <a href="https://wwha.lanzoub.com/b009he4gcj" target="_blank">
-                                <i class="fas fa-external-link-alt"></i> 访问我的资源库（密码:1145）
-                            </a>
-                        </div>
-                    </div>
+                <div class="info-item">
+                    <span class="info-label">年龄：</span>
+                    <span>15岁</span>
                 </div>
-                
-                <div class="social-icons">
-                    <a href="javascript:void(0)" title="微信" id="wechat-btn"><i class="fab fa-weixin"></i></a>
-                    <a href="https://qm.qq.com/q/yXxuez1e7K" title="QQ"><i class="fab fa-qq"></i></a>
-                    <a href="mailto:qweasdzxc17856966954@outlook.com" title="邮箱"><i class="fas fa-envelope"></i></a>
-                    <a href="tel:17856966954" title="电话"><i class="fas fa-phone"></i></a>
-                    <a href="https://wwha.lanzoub.com/b009he4gcj" title="网盘" target="_blank"><i class="fas fa-cloud"></i></a>
+                <div class="info-item">
+                    <span class="info-label">身份：</span>
+                    <span>学生</span>
                 </div>
             </div>
-        </div>
-    </div>
-    
-    <!-- 微信二维码模态框 -->
-    <div class="modal" id="wechat-modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <i class="fab fa-weixin"></i>
-                <h3>微信二维码</h3>
+            
+            <div class="card">
+                <h2>兴趣爱好</h2>
+                <div class="interests">
+                    <span class="interest-tag">运动</span>
+                    <span class="interest-tag">学习</span>
+                    <span class="interest-tag">编程</span>
+                    <span class="interest-tag">音乐</span>
+                    <span class="interest-tag">游戏</span>
+                </div>
             </div>
             
-            <div class="qr-code">
-                <!-- 这里使用了占位二维码，您需要替换为实际二维码 -->
-                <img src="https://raw.githubusercontent.com/Songyuzhe114514/Songyuzhe114514.github.io/refs/heads/main/wechat-qr.jpg" alt="微信二维码">
-            </div>
-            
-            <div class="username">
-                <i class="fas fa-user"></i> syz1125818
-            </div>
-            
-            <div class="modal-footer">
-                <a href="#" class="download-btn" id="download-qr">
-                    <i class="fas fa-download"></i> 下载二维码
+            <div class="card">
+                <h2>GitHub</h2>
+                <div class="info-item">
+                    <span class="info-label">用户名：</span>
+                    <span>Songyuzhe114514</span>
+                </div>
+                <a href="https://github.com/Songyuzhe114514" class="github-link" target="_blank">
+                    <span class="github-icon">⚡</span>
+                    <span>访问我的GitHub主页</span>
                 </a>
-                <button class="download-btn close-btn" id="close-modal">
-                    <i class="fas fa-times"></i> 关闭
-                </button>
             </div>
         </div>
+        
+        <footer>
+            <p>© 2025 songyuzhe.top. 保留所有权利.</p>
+        </footer>
     </div>
-    
-    <script>
-        // 修复的年龄计算函数
-        function calculateAge() {
-            // 使用正确的日期格式：年, 月(0-11), 日
-            const birthDate = new Date(2011, 10, 25); // 11月是10
-            const today = new Date();
-            
-            let age = today.getFullYear() - birthDate.getFullYear();
-            const monthDiff = today.getMonth() - birthDate.getMonth();
-            
-            if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
-                age--;
-            }
-            
-            return age;
-        }
-        
-        // 更新年龄显示
-        function updateAgeDisplay() {
-            const age = calculateAge();
-            document.getElementById('age').textContent = age + "岁";
-        }
-        
-        // 获取模态框和按钮元素
-        const modal = document.getElementById('wechat-modal');
-        const wechatBtn = document.getElementById('wechat-btn');
-        const closeBtn = document.getElementById('close-modal');
-        const downloadBtn = document.getElementById('download-qr');
-        
-        // 页面加载完成后执行
-        window.onload = function() {
-            // 更新年龄
-            updateAgeDisplay();
-            
-            // 每天更新一次年龄
-            setInterval(updateAgeDisplay, 1000 * 60 * 60 * 24);
-            
-            // 添加简单的动画效果
-            const infoCards = document.querySelectorAll('.info-card');
-            infoCards.forEach((card, index) => {
-                setTimeout(() => {
-                    card.style.opacity = 1;
-                    card.style.transform = 'translateY(0)';
-                }, 300 + index * 200);
-            });
-            
-            // 微信按钮点击事件
-            wechatBtn.addEventListener('click', function(e) {
-                e.preventDefault();
-                modal.style.display = 'flex';
-                document.body.style.overflow = 'hidden'; // 防止背景滚动
-            });
-            
-            // 关闭按钮点击事件
-            closeBtn.addEventListener('click', function() {
-                modal.style.display = 'none';
-                document.body.style.overflow = 'auto'; // 恢复滚动
-            });
-            
-            // 点击模态框外部关闭
-            window.addEventListener('click', function(e) {
-                if (e.target === modal) {
-                    modal.style.display = 'none';
-                    document.body.style.overflow = 'auto'; // 恢复滚动
-                }
-            });
-            
-            // 下载按钮点击事件
-            downloadBtn.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                // 创建临时下载链接
-                const link = document.createElement('a');
-                // 使用API生成二维码图片URL
-                link.href = 'https://raw.githubusercontent.com/Songyuzhe114514/Songyuzhe114514.github.io/refs/heads/main/wechat-qr.jpg';
-                link.download = 'wechat-qr.jpg';
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-                
-                // 显示下载成功提示
-                alert('二维码已下载！');
-            });
-            
-            // 添加装饰元素动画
-            const decorations = document.querySelectorAll('.decoration');
-            decorations.forEach((dec, index) => {
-                dec.style.opacity = '0';
-                setTimeout(() => {
-                    dec.style.transition = 'opacity 1s ease, transform 8s linear';
-                    dec.style.opacity = '1';
-                    
-                    if (dec.classList.contains('circle')) {
-                        dec.style.animation = 'float 8s infinite ease-in-out';
-                    } else if (dec.classList.contains('triangle')) {
-                        dec.style.animation = 'float 10s infinite ease-in-out';
-                    } else if (dec.classList.contains('square')) {
-                        dec.style.animation = 'float 12s infinite ease-in-out';
-                    }
-                }, 500 + index * 300);
-            });
-        };
-        
-        // 添加浮动动画
-        const style = document.createElement('style');
-        style.innerHTML = `
-            @keyframes float {
-                0% { transform: translateY(0) rotate(0deg); }
-                50% { transform: translateY(-20px) rotate(5deg); }
-                100% { transform: translateY(0) rotate(0deg); }
-            }
-        `;
-        document.head.appendChild(style);
-    </script>
 </body>
 </html>
