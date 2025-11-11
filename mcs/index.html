@@ -21,7 +21,6 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
         }
 
         .container {
@@ -48,7 +47,7 @@
         .card {
             background-color: #f9f9f9;
             border-radius: 12px;
-            padding: 30px;
+            padding: 25px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.08);
             transition: transform 0.3s, box-shadow 0.3s;
         }
@@ -60,60 +59,57 @@
 
         h2 {
             color: #3498db;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             font-size: 1.5rem;
             border-bottom: 2px solid #eaeaea;
             padding-bottom: 10px;
-            text-align: center;
         }
 
         .info-item {
             display: flex;
-            justify-content: space-between;
-            margin-bottom: 20px;
-            padding: 10px 0;
-            border-bottom: 1px solid #eee;
+            margin-bottom: 15px;
         }
 
         .info-label {
             font-weight: bold;
+            min-width: 100px;
             color: #2c3e50;
-        }
-
-        .info-value {
-            font-weight: 500;
         }
 
         .status {
             display: inline-flex;
             align-items: center;
-            padding: 5px 12px;
+            padding: 8px 15px;
             border-radius: 20px;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             font-weight: bold;
         }
 
         .online {
-            background-color: #d4edda;
-            color: #155724;
+            background-color: #e1f5fe;
+            color: #0277bd;
         }
 
         .offline {
-            background-color: #f8d7da;
-            color: #721c24;
+            background-color: #ffebee;
+            color: #c62828;
+        }
+
+        .loading {
+            background-color: #fff3e0;
+            color: #ef6c00;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+            text-align: center;
         }
 
         footer {
             text-align: center;
-            margin-top: 30px;
+            margin-top: 40px;
             color: #95a5a6;
             font-size: 0.95rem;
-        }
-
-        .loading {
-            text-align: center;
-            color: #7f8c8d;
-            margin: 10px 0;
         }
 
         @media (max-width: 600px) {
@@ -129,7 +125,7 @@
             <h1>Minecraft 服务器状态</h1>
             <p class="subtitle">mc.songyuzhe.top</p>
         </header>
-        
+
         <div class="card">
             <h2>服务器信息</h2>
             <div class="loading" id="loading">正在获取服务器状态...</div>
@@ -146,8 +142,9 @@
                 <span class="info-value" id="server-version">未知</span>
             </div>
         </div>
-        
+
         <footer>
+            <p>© 2025 songyuzhe.top. 保留所有权利.</p>
             <p>最后更新: <span id="update-time">--:--:--</span></p>
         </footer>
     </div>
@@ -159,7 +156,7 @@
             const timeString = now.toLocaleString('zh-CN');
             document.getElementById('update-time').textContent = timeString;
         }
-        
+
         // 获取服务器状态
         async function fetchServerStatus() {
             try {
@@ -172,12 +169,12 @@
                 document.getElementById('server-status').innerHTML = '<span class="status offline">获取失败</span>';
             }
         }
-        
+
         // 更新服务器信息
         function updateServerInfo(data) {
             const loadingElement = document.getElementById('loading');
             loadingElement.style.display = 'none';
-            
+
             // 更新服务器状态
             const statusElement = document.getElementById('server-status');
             if (data.online) {
@@ -185,7 +182,7 @@
             } else {
                 statusElement.innerHTML = '<span class="status offline">离线</span>';
             }
-            
+
             // 更新玩家数量
             const playerElement = document.getElementById('player-count');
             if (data.online && data.players) {
@@ -193,7 +190,7 @@
             } else {
                 playerElement.textContent = '未知';
             }
-            
+
             // 更新服务器版本
             const versionElement = document.getElementById('server-version');
             if (data.online && data.version) {
@@ -201,18 +198,18 @@
             } else {
                 versionElement.textContent = '未知';
             }
-            
+
             // 更新最后更新时间
             updateTime();
         }
-        
+
         // 页面加载时获取服务器状态
         document.addEventListener('DOMContentLoaded', function() {
             fetchServerStatus();
-            
+
             // 每30秒更新一次状态
             setInterval(fetchServerStatus, 30000);
         });
     </script>
 </body>
-</html
+</html>
